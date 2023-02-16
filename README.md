@@ -1,1 +1,2 @@
-# Customer-Segmentation-
+# customer segmentation
+ 
