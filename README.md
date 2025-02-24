@@ -1,76 +1,60 @@
 # Customer Segmentation  
 
 ## Overview  
-This project focuses on **customer segmentation** using machine learning techniques. The goal is to analyze customer purchasing behavior and group them into meaningful segments based on shared characteristics. This helps businesses optimize marketing strategies, personalize offerings, and improve customer retention.  
+This project aims to segment customers based on purchasing behavior using unsupervised learning techniques. By identifying distinct customer groups, businesses can tailor marketing strategies and improve customer engagement.  
 
 ## Dataset  
-The dataset contains various customer attributes, such as:  
-- **Customer ID** – Unique identifier for each customer  
-- **Annual Income** – The yearly income of the customer  
-- **Spending Score** – A score assigned based on spending patterns  
-- **Age** – Age of the customer  
-- **Purchase Behavior** – Frequency and type of purchases  
-- **Other Demographic & Behavioral Factors**  
+The dataset comprises customer data with the following attributes:  
+- **CustomerID**: Unique identifier for each customer  
+- **Gender**: Customer's gender  
+- **Age**: Customer's age  
+- **Annual Income (k$)**: Yearly income of the customer in thousand dollars  
+- **Spending Score (1-100)**: Score assigned by the mall based on customer behavior and spending nature  
 
 ## Objectives  
-- Perform **Exploratory Data Analysis (EDA)** to understand customer behavior.  
-- Apply **unsupervised learning algorithms** to segment customers.  
-- Identify key insights to improve business decision-making.  
+- Perform Exploratory Data Analysis (EDA) to understand customer demographics and spending patterns.  
+- Apply clustering algorithms to segment customers into distinct groups.  
+- Visualize the clusters to interpret and profile each customer segment.  
 
 ## Methodology  
 
-1. **Data Exploration & Preprocessing**:  
-   - Checking for missing values and handling outliers.  
-   - Normalizing numerical variables for better clustering performance.  
+### 1. Data Exploration & Preprocessing  
+- **Data Cleaning**: Checked for missing values and handled them appropriately.  
+- **Feature Selection**: Focused on 'Age', 'Annual Income (k$)', and 'Spending Score (1-100)' for clustering.  
+- **Data Visualization**: Used histograms and box plots to understand the distribution and detect outliers.  
 
-2. **Feature Engineering**:  
-   - Selecting relevant features for clustering.  
-   - Creating new features like **spending efficiency** and **income-to-spending ratio**.  
+### 2. Clustering Models  
+- **K-Means Clustering**:  
+  - Applied the **Elbow Method** to determine the optimal number of clusters.  
+  - Segmented customers based on their purchasing behavior.  
+  - Cluster visualization was performed using **scatter plots**.  
+- **Hierarchical Clustering**:  
+  - Used **dendrograms** to decide the number of clusters.  
+  - Visualized customer groups using hierarchical clustering techniques.  
 
-3. **Customer Segmentation Models**:  
-   - **K-Means Clustering** – Segments customers based on similarity.  
-   - **Hierarchical Clustering** – Groups customers using a dendrogram.  
-   - **DBSCAN** – Detects clusters with varying densities.  
+## Findings  
+- **Optimal Number of Clusters**: The **Elbow Method** suggested 5 as the optimal number of clusters.  
+- **Cluster Profiles**:  
+  - **Cluster 1**: High income, high spending  
+  - **Cluster 2**: High income, low spending  
+  - **Cluster 3**: Low income, high spending  
+  - **Cluster 4**: Low income, low spending  
+  - **Cluster 5**: Average income, average spending  
 
-4. **Cluster Analysis**:  
-   - Visualizing clusters using **scatter plots and PCA (Principal Component Analysis)**.  
-   - Interpreting the characteristics of each segment.  
-
-## Outputs  
-
-### 1. Key Findings  
-- Customers were grouped into distinct clusters based on **income and spending behavior**.  
-- **High-income, high-spending customers** formed a premium segment.  
-- A group of **low-income, high-spending customers** indicated potential credit risk.  
-- Middle-income, moderate-spending customers formed a **stable segment** ideal for loyalty programs.  
-
-### 2. Model Performance Metrics  
-| Model                 | Silhouette Score | Davies-Bouldin Score | Calinski-Harabasz Score |
-|----------------------|----------------|-------------------|----------------------|
-| K-Means (Optimal K)  | **0.55**        | **0.89**          | **215.4**           |
-| Hierarchical Clustering | 0.51           | 1.02              | 198.7               |
-| DBSCAN               | 0.42            | 1.25              | 174.9               |
-
-#### Interpretation:
-- **Silhouette Score** (Higher is better) – K-Means had the best clustering cohesion and separation.  
-- **Davies-Bouldin Score** (Lower is better) – K-Means had the most distinct cluster separation.  
-- **Calinski-Harabasz Score** (Higher is better) – K-Means had the best-defined clusters.  
-
-### 3. Best Model Selection  
-- **K-Means Clustering performed the best**, achieving the highest silhouette score and well-separated clusters.  
-- **Hierarchical Clustering** was useful for interpretability but had slightly lower performance.  
-- **DBSCAN identified outliers** but did not perform well for well-defined customer segments.  
+## Performance Evaluation  
+The clustering results were validated using **visual methods**, such as the **Elbow Method graph** and **cluster scatter plots**. However, quantitative metrics like **Silhouette Score and Davies-Bouldin Index** were **not computed** in this project.  
 
 ## Technologies Used  
-- Python  
-- Pandas, NumPy, Matplotlib, Seaborn  
-- Scikit-learn  
-- Jupyter Notebook  
+- **Python**: Programming language  
+- **Pandas & NumPy**: Data manipulation and analysis  
+- **Matplotlib & Seaborn**: Data visualization  
+- **Scikit-learn**: Machine learning algorithms  
+- **Jupyter Notebook**: Interactive computing environment  
 
 ## Conclusion  
-This project demonstrates how **customer segmentation** can be leveraged to tailor marketing strategies and enhance business decision-making. By identifying distinct customer groups, businesses can offer **personalized promotions, loyalty programs, and targeted advertisements**.  
+The project successfully segmented customers into distinct groups based on their purchasing behavior. These segments provide valuable insights that can drive targeted marketing and personalized customer experiences.  
 
 ## Future Enhancements  
-- Implement **deep learning-based segmentation** using autoencoders.  
-- Use **RFM (Recency, Frequency, Monetary) analysis** for better customer profiling.  
-- Deploy the segmentation model as an interactive **dashboard for business insights**.  
+- **Compute Clustering Metrics**: Include **Silhouette Score and Davies-Bouldin Index** for performance evaluation.  
+- **Incorporate Additional Features**: Use more attributes like **purchase history** for deeper segmentation.  
+- **Explore Other Clustering Algorithms**: Evaluate **DBSCAN** or **Gaussian Mixture Models** for better clustering.  
